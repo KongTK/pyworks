@@ -2,6 +2,7 @@
 li = [5, 7, 3, 2, 9]
 li2 = [] # 빈 리스트 생성
 li3 = [] # li2
+li4 = []
 
 for i in li:
     li2.append(i)
@@ -15,3 +16,9 @@ for i in li:
     if i % 2 == 0:
         li3.append(i)
 print(li3)
+
+# 3보다 큰 수 저장
+for i in li:
+    if i > 3:
+        li4.append(i)
+print(li4)
