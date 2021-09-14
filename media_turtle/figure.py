@@ -4,21 +4,16 @@ import turtle as t
 t.shape("turtle")
 
 # 사각형 그리기
-n = 4
-d = 150
-t.pensize(2)
-for i in range(n):
-    t.forward(d)
-    t.right(360/n)
+for i in range(4):
+    t.forward(100)
+    t.right(90)
+    
+#삼각형
+for i in range(3):
+    t.forward(100)
+    t.left(120)
 
-# 삼각형 그리기
-n = 3
-t.color("blue")
-t.pensize(3)
-for i in range(n):
-    t.forward(d)
-    t.left(360/n)
+#원
+t.circle(50)  #반지름이 50px
 
-# 원 그리기
-t.color("red")
-t.circle(100) #반지름이 50px인 원
+t.mainloop()
