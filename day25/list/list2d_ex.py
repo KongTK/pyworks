@@ -17,6 +17,7 @@ for i in range(len(d2)):
     for j in range(len(d2[i])):
         sum_v += d2[i][j]
         count += 1
+        print(sum_v, d2[i][j], count)
     print()
 avg = sum_v / count
 print("개수 : %d" % count)
