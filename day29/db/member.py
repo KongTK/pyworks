@@ -11,7 +11,8 @@ def create_table():
             memberId char(5) PRIMARY KEY,
             passwd   char(8) NOT NULL,
             name     TEXT NOT NULL,
-            age      INTEGER
+            age      INTEGER,
+            reg_date DATELINE DEFAULT CURRENT_TIMESTAMP
         )
     """
     cur.execute(sql)
@@ -23,7 +24,7 @@ def insert_member():
     conn = getconn()
     cur = conn.cursor()
     sql = "INSERT INTO member(memberId, passwd, name, age) VALUES (?, ?, ?, ?)"
-    cur.execute(sql, ('10002', 'b1234567', '팥쥐', 18))
+    cur.execute(sql, ('10003', 'c1234567', '콩쥐', 17))
     conn.commit()
     conn.close()
 
@@ -37,8 +38,38 @@ def select_member():
         print(i)
     conn.close() # select는 commit 필요 X
 
+# 특정한 1개 검색 - 아이디와 비밀번호 가져오기
+def select_one():
+    conn = getconn()
+    cur = conn.cursor()
+    sql = "SELECT memberId, passwd FROM member WHERE memberId = ?"
+    cur.execute(sql, ('10002', ))  # 1개 매핑 시 , 필수
+    rs = cur.fetchone() # 1개의 정보를 반환받음
+    print(rs)
+    conn.commit()
+    conn.close()
+
+def update_member():
+    conn = getconn()
+    cur = conn.cursor()
+    sql = "UPDATE member SET age = ? WHERE memberId = ?"
+    cur.execute(sql, (37, '10001'))
+    conn.commit()
+    conn.close()
+
+def delete_member():
+    conn = getconn()
+    cur = conn.cursor()
+    sql = "DELETE FROM member WHERE memberId = ?"
+    cur.execute(sql, ('10002', ))
+    conn.commit()
+    conn.close()
+
 # create_table()
-insert_member()
+# insert_member()
+# update_member()
+delete_member()
+# select_one()
 select_member()
 
 
