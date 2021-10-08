@@ -1,3 +1,4 @@
+
 class Calculator:
     def __init__(self, x, y):
         self.x = x
@@ -5,18 +6,21 @@ class Calculator:
 
     def add(self):
         return self.x + self.y
+
     def sub(self):
         return self.x - self.y
+
     def mul(self):
         return self.x * self.y
+
     def div(self):
-        if self.y == 0: # 0으로 나눌 경우 지정하지 않으면 에러발생
-            print("0으로 나눌 수 없습니다")
+        if self.y == 0:
+            print("0으로 나눌 수 없습니다.")
             return 0
         else:
             return self.x / self.y
 
-cal = Calculator(5, 6)
+cal = Calculator(5, 0)
 print(cal.add())
 print(cal.sub())
 print(cal.mul())

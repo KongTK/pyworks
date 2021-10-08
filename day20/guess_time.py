@@ -2,10 +2,10 @@
 
 import time
 
-input("엔터를 누르고 20초를 셉니다")
-start = time.time() # 1970.1.1 자정 이후부터 지금까지 초로 환산한 시간
+input("엔터를 누르고 20초를 셉니다.")  #input()이 엔터임
+start = time.time()   # 1970. 1.1 자정이후 지금까지 초로 환산 시간
 
-input("20초 후에 다시 엔터를 누릅니다")
+input("20초 후에 다시 엔터를 누릅니다.")
 end = time.time()
 
 et = end-start

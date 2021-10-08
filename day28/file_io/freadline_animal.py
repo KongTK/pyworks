@@ -5,19 +5,19 @@ with open('animal.txt', 'w') as f:
         f.write(i + '\n')
 
 with open('animal.txt', 'r') as f:
-    # line = f.readline() # 한줄 읽기
+    # line = f.readline()  # 한줄 읽기
     # print(line)
 
-    lines = f.readlines() # 전체 읽기
-    print(lines) # 1차원 리스트
+    lines = f.readlines()  # 전체 읽기
+    print(lines)  # 1차원 리스트
 
-    # 2차원 리스트
-    d2 = []
+    # 2차원 리스트로 만들기
     animal = []
     for i in lines:
-        # animal.append([i])
-        animal.append(i[0:-1]) # '\n'제거 
+        #animal.append([i])
+        animal.append(i[0:-1])  # 1차원
+        #animal.append([i[0:-1]]) # 이차원
     print(animal)
 
     # for i in lines:
-    #    print(i, end=' ')
+    #     print(i, end='')

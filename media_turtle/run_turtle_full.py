@@ -14,10 +14,10 @@ def turn_left():
 def turn_down():
     t.setheading(270)
 
-def start(): # 스페이스바 누름
+def start():  # 스페이스 키를 누름
     global playing
-    if playing == False: # 게임이 중지되었다면 
-        playing = True  # 게임 시작
+    if playing == False:  # 게임이 중지되었다면
+        playing = True    # 게임을 시작함
         t.clear()
         play()
 
@@ -27,23 +27,23 @@ def message(m1, m2):
     t.write(m1, False, "center", ("", 20))
     t.goto(0, -100)
     t.write(m2, False, "center", ("", 15))
-    t.home() # 거북이의 위치 좌표(0,0)
+    t.home()  # 거북이의 위치 좌표(0, 0)
 
 def play():
     global playing
     global score
 
-    if playing: # playing == True이면
-        t.ontimer(play, 100) # 0.1초 간격으로 play(콜백)
+    if playing:  #playing == True 이면
+        t.ontimer(play, 100)  #0.1초 간격으로 play(콜백)
 
     t.forward(10) #주인공 거북이의 이동 거리
-    if random.randint(1, 5) == 2: # 2를 뽑을 확률 20%
+    if random.randint(1, 5) == 2:  #2를 뽑을 확률은 20%
         ang = te.towards(t.pos())  #주인공 거북이 위치를 쫒아가는 적 거북이
         te.setheading(ang)
     speed = score + 5
     te.forward(speed)
 
-    #주인공 거북이가 먹이에 닿으면 먹이가 새 위치로 이동
+    # 주인공 거북이가 먹이에 닿으면 먹이가 새 위치로 이동
     if t.distance(tf) < 12:
         score = score + 1
         t.write(score)
@@ -55,12 +55,12 @@ def play():
     if t.distance(te) < 12:
         text = "Score : " + str(score)
         message("Game Over", text)
-        playing = False # 게임 종료
-        score = 0 # 점수 초기화
+        playing = False  # 게임 종료
+        score = 0        # 점수 초기화
 
 # 메인(함수) 부분
-playing = False # 게임 스위치 전역 변수 설정
-score = 0   # 전역 변수(점수 누적-공유)
+playing = False  # 게임 스위치 전역 변수 설정
+score = 0        # 전역변수 (점수 누적-공유)
 
 # 적 거북이
 te = t.Turtle()  #Turtle() 클래스의 생성자
@@ -94,7 +94,5 @@ t.onkeypress(turn_down, "Down")
 t.onkeypress(start, "space")
 t.listen()
 message("Turtle Run", "[Space]")
-
-
 
 t.mainloop()

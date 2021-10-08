@@ -1,24 +1,27 @@
-# 가변 매개 변수 : 정해지지 않은 매개 변수
-
+# 가변 매개 변수 : 매개변수가 정해지지 않음
 # 문자열이 추가되는 함수
-def merge_text(*text): # * 정해지지 않음
-    result = "" #빈 문자 선언(초기화)
+def merge_text(*text):
+    result = ""  #빈 문자 선언(초기화)
     for t in text:
-        result = result + t
-    return result # for 안에서 return하면 안 됨
+        result += t
+    return result  #for 밖에서 return 함
 
-# 숫자를 더한 후 평균을 계산
+# 숫자를 더해서 평균을 계산하는 함수
 def calc_avg(*x):
     total = 0
-    for i in x:
+    for i in x:      #for i in (1, 2, 3, 4) 튜플
         total += i
-    avg = total / len(x)
+    avg = total / len(x) # 개수 세는 함수 - len(x)
     return avg
 
-if __name__ == "__main__": # 외부 호출시에는 포함되지 않도록
+# 제곱수 계산하는 함수 정의
+def square(x):
+    return x * x
+
+if __name__ == "__main__":
     # 문자열 더하기
     text1 = merge_text("코스모스")
-    text2 = merge_text("코스모스 ", "국화")
+    text2 = merge_text("코스모스 ", "국화 ")
     print(text1)
     print(text2)
 

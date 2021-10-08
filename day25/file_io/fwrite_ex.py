@@ -5,5 +5,7 @@ import math
 with open("c:/pyfile/circle_area.txt", 'w') as f:
     radius = 10
     area = math.pi * radius * radius
-    f.write("반지름 : %.dcm\n" % radius)
+    f.write("반지름의 길이 : %dcm\n" % radius)
     f.write("원의 넓이 : %.2fcm\n" % area)
+
+
